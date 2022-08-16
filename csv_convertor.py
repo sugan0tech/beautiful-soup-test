@@ -17,7 +17,7 @@ def csv_from_excel():
 data_dict = {}
 with open("/home/sugan/Documents/GitHub/beautiful-soup-test/output.csv", encoding = 'utf-8') as csv_file_handler:
     csv_reader = csv.DictReader(csv_file_handler)
-    sett = {"university Name","Website", "Area", "Year of Establishment", "Total Teachers", "Number of Study Centers", "Number of pg and off Campus Centers" }
+    sett = {"university Name","Website", "Area", "Year of Establishment", "Total Teachers", "Number of Study Centers", "Number of pg and off Campus Centers" , "Speciality", "Number of Departments", "No of Boys Hostel", "No of Girls Hostel", "Boys Hostel Intake Capacity", "Girls Hostel Intake Capacity"}
     for rows in csv_reader:
         print(rows)
         tmp = {}
