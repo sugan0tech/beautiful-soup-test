@@ -17,10 +17,16 @@ def csv_from_excel():
 data_dict = {}
 with open("/home/sugan/Documents/GitHub/beautiful-soup-test/output.csv", encoding = 'utf-8') as csv_file_handler:
     csv_reader = csv.DictReader(csv_file_handler)
+    sett = {"university Name","Website", "Area", "Year of Establishment", "Total Teachers", "Number of Study Centers", "Number of pg and off Campus Centers" }
     for rows in csv_reader:
         print(rows)
-        key = rows['AISHE Code']
-        data_dict[key] = rows
+        tmp = {}
+        for input_factor in rows:
+            if input_factor in sett:
+                tmp[input_factor] = rows[input_factor]
 
-    with open("/home/sugan/Documents/GitHub/beautiful-soup-test/output.json", 'w', encoding = 'utf-8') as json_file_handler:
+        key = rows['AISHE Code']
+        data_dict[key] = tmp
+
+    with open("/home/sugan/Documents/GitHub/beautiful-soup-test/simpleData.json", 'w', encoding = 'utf-8') as json_file_handler:
         json_file_handler.write(json.dumps(data_dict, indent = 4))
